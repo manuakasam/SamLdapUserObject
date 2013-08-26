@@ -38,18 +38,6 @@ class Module implements
         return include __DIR__ . '/../../config/module.config.php';
     }
 
-    public function getServiceConfig()
-    {
-        return array(
-//            'invokables' => array(
-//                'SamLdapUserObject\Entity\User' => 'SamLdapUserObject\Entity\User'
-//            ),
-            'factories' => array(
-                'SamLdapUserObject\Service\UserService' => 'SamLdapUserObject\Service\UserServiceFactory'
-            )
-        );
-    }
-
     public function onBootstrap(MvcEvent $mvcEvent)
     {
         $eventManager       = $mvcEvent->getApplication()->getEventManager();

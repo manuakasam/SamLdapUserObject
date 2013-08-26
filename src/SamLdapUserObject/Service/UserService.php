@@ -28,9 +28,15 @@ class UserService implements FindByLdapIdentityInterface
 
     public function createUser(User $prototype)
     {
-        die("about to insert");
         $om = $this->getObjectManager();
         $om->persist($prototype);
+        $om->flush();
+    }
+
+    public function updateUser(User $userObject)
+    {
+        $om = $this->getObjectManager();
+        $om->persist($userObject);
         $om->flush();
     }
 

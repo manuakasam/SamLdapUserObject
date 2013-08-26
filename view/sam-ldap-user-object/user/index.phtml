@@ -1,0 +1,26 @@
+<h1>Persönliches Nutzerprofil</h1>
+<?php if (false === $user->hasProfileBeenEdited()) : ?>
+<div class="alert alert-info">
+    <p>
+        <a href="<?php echo $this->url('user-manager/edit', array('id'=>$user->getId()));?>">
+        <strong>Sie haben Ihr Profil noch nicht aktualisiert!</strong><br />
+        Bitte aktualisieren Sie Ihr Profil. Es wird Ihre E-Mail-Adresse sowie Vor- und Zuname benötigt.<br />
+        Klicken Sie bitte hier, um Ihr Profil zu aktualisieren.
+        </a>
+    </p>
+</div>
+<?php endif; ?>
+<dl>
+    <dt>Ldap-Nutzername</dt>
+    <dd><?php echo $user->getLdapIdentity();?></dd>
+    <dt>Vorname</dt>
+    <dd><?php echo $user->getName() ?: '<span class="alert-info">nicht angegeben</span>';?></dd>
+    <dt>Nachname</dt>
+    <dd><?php echo $user->getSurname() ?: '<span class="alert-info">nicht angegeben</span>';?></dd>
+    <dt>E-Mail-Adresse</dt>
+    <dd><?php echo $user->getEmail() ?: '<span class="alert-info">nicht angegeben</span>';?></dd>
+    <dt>Telefon Arbeit</dt>
+    <dd><?php echo $user->getPhoneWork() ?: '<span class="alert-info">nicht angegeben</span>';?></dd>
+    <dt>Telefon Sonstige</dt>
+    <dd><?php echo $user->getPhoneAlternative() ?: '<span class="alert-info">nicht angegeben</span>';?></dd>
+</dl>
